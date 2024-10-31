@@ -1,30 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Register {
-    double value;
+    vector<int>reg;
+    int size2;
     public:
-    Register()
+    Register() : reg(16 , 0)
     {
-        value = 0;
+        size2 = 16;
     }
-    void setRegister(double v)
+    void setRegister(int address , int value)
     {
-        value = v;
+        reg[address] = value;
     }
-    double getRegister()
+    int getRegister(int address)
     {
-        return value;
+        return reg[address];
     }
 };
 class Memory {
-    vector<int>memo;
+    vector<string>memo;
+    int size1;
     public:
-    Memory(int size):memo(size , 0){}
-    double rd (int index) {
+    Memory():memo(256 , 0) {
+        size1 = 256;
+    }
+    string rd (int index) {
         return memo[index];
     }
-    void wr (int index, double value) {
-        memo[index] = value;
+    void wr (int index, string val) {
+        memo[index] = val;
     }
 };
 int main()
